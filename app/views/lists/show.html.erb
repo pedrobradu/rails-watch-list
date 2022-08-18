@@ -1,0 +1,14 @@
+<h1>Mostrar lista de filmes<h1>
+
+<%@list.bookmarks.each do |bookmark| %>
+    <p><%= "#{bookmark.movie.title} " %></p>
+    <p><%= "#{bookmark.movie.overview} " %></p>
+    <p><%= "#{bookmark.movie.poster_url} " %></p>
+    <p><%= "#{bookmark.movie.rating} " %></p>
+<%end %>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "Criar bookmark!" %>
+<% end %>
