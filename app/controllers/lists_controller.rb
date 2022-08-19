@@ -21,8 +21,13 @@ class ListsController < ApplicationController
 
     def show
         @list = List.find(params[:id])
-        @bookmark = Bookmark.new
-        
+        @bookmark = Bookmark.new 
+    end
+
+    def destroy
+        @list = List.find(params[:id])
+        @list.destroy
+        redirect_to root_path, status: :see_other
     end
 
     private

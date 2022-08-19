@@ -3,7 +3,9 @@
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
+    <%= link_to "Deletar lista", list_path(list), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   <% end %>
 </ul>
 
 <%= link_to "Criar lista!", new_list_path()%>
+
